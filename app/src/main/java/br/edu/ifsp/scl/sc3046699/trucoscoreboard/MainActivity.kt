@@ -70,6 +70,8 @@ fun PlacarTruco(modifier: Modifier = Modifier) {
             fontSize = 28.sp
         )
 
+        Spacer(modifier = Modifier.height(30.dp))
+
         Text(
             text = "Equipe A",
             fontSize = 24.sp
@@ -90,6 +92,9 @@ fun PlacarTruco(modifier: Modifier = Modifier) {
             ) {
                 Text("+1")
             }
+
+            Spacer(modifier = Modifier.width(10.dp))
+
             Button(
                 onClick = {
                     if (!jogoFinalizado) {
@@ -100,6 +105,8 @@ fun PlacarTruco(modifier: Modifier = Modifier) {
                 Text("+3")
             }
         }
+
+        Spacer(modifier = Modifier.height(30.dp))
 
         Text(
             text = "Equipe B",
@@ -135,12 +142,16 @@ fun PlacarTruco(modifier: Modifier = Modifier) {
             }
         }
 
+        Spacer(modifier = Modifier.height(30.dp))
+
         if (mensagem.isNotEmpty()) {
             Text(
                 text = mensagem,
                 fontSize = 20.sp
             )
         }
+
+        Spacer(modifier = Modifier.height(20.dp))
 
         Button(
             onClick = {

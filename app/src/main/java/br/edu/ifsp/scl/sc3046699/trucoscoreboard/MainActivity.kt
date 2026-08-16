@@ -6,10 +6,13 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
+import androidx.compose.material3.Button
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -53,6 +56,8 @@ fun PlacarTruco(modifier: Modifier = Modifier) {
         else -> ""
     }
 
+    val jogoFinalizado = pontosA >= 12 || pontosB >= 12
+
     Column(
         modifier = modifier
             .fillMaxSize(),
@@ -64,5 +69,72 @@ fun PlacarTruco(modifier: Modifier = Modifier) {
             text = "Placar de Truco",
             fontSize = 28.sp
         )
+
+        Text(
+            text = "Equipe A",
+            fontSize = 24.sp
+        )
+
+        Text(
+            text = pontosA.toString(),
+            fontSize = 48.sp
+        )
+
+        Row {
+            Button(
+                onClick = {
+                    if (!jogoFinalizado) {
+                        pontosA = minOf(pontosA + 1, 12)
+                    }
+                }
+            ) {
+                Text("+1")
+            }
+            Button(
+                onClick = {
+                    if (!jogoFinalizado) {
+                        pontosA = minOf(pontosA + 3, 12)
+                    }
+                }
+            ) {
+                Text("+3")
+            }
+        }
+
+        Text(
+            text = "Equipe B",
+            fontSize = 24.sp
+        )
+
+        Text(
+            text = pontosB.toString(),
+            fontSize = 48.sp
+        )
+
+        Row {
+            Button(
+                onClick = {
+                    if (!jogoFinalizado) {
+                        pontosB += 1
+                    }
+                }
+            ) {
+                Text("+1")
+            }
+
+            Spacer(modifier = Modifier.width(10.dp))
+
+            Button(
+                onClick = {
+                    if (!jogoFinalizado) {
+                        pontosB += 3
+                    }
+                }
+            ) {
+                Text("+3")
+            }
+        }
     }
 }
+
+

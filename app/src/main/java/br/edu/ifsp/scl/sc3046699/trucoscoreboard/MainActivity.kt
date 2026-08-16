@@ -134,6 +134,22 @@ fun PlacarTruco(modifier: Modifier = Modifier) {
                 Text("+3")
             }
         }
+
+        if (mensagem.isNotEmpty()) {
+            Text(
+                text = mensagem,
+                fontSize = 20.sp
+            )
+        }
+
+        Button(
+            onClick = {
+                pontosA = 0
+                pontosB = 0
+            }
+        ) {
+            Text("Reiniciar")
+        }
     }
 }
 

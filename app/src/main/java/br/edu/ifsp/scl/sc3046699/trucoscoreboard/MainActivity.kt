@@ -58,6 +58,8 @@ fun PlacarTruco(modifier: Modifier = Modifier) {
     }
 
     val jogoFinalizado = pontosA >= 12 || pontosB >= 12
+    val maoDeOnzeA      = pontosA == 11
+    val maoDeOnzeB      = pontosB == 11
 
     Column(
         modifier = modifier
@@ -87,7 +89,7 @@ fun PlacarTruco(modifier: Modifier = Modifier) {
             Button(
                 onClick = {
                     if (!jogoFinalizado) {
-                        pontosA = minOf(pontosA + 1, 12)
+                        pontosA ++
                     }
                 }
             ) {
@@ -98,8 +100,8 @@ fun PlacarTruco(modifier: Modifier = Modifier) {
 
             Button(
                 onClick = {
-                    if (!jogoFinalizado) {
-                        pontosA = minOf(pontosA + 3, 12)
+                    if (!jogoFinalizado && !maoDeOnzeA) {
+                        pontosA += 3
                     }
                 }
             ) {
@@ -123,7 +125,7 @@ fun PlacarTruco(modifier: Modifier = Modifier) {
             Button(
                 onClick = {
                     if (!jogoFinalizado) {
-                        pontosB += 1
+                        pontosB ++
                     }
                 }
             ) {
@@ -134,7 +136,7 @@ fun PlacarTruco(modifier: Modifier = Modifier) {
 
             Button(
                 onClick = {
-                    if (!jogoFinalizado) {
+                    if (!jogoFinalizado && !maoDeOnzeB) {
                         pontosB += 3
                     }
                 }

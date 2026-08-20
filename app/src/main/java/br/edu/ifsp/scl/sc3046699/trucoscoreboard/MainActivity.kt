@@ -122,7 +122,7 @@ fun PlacarTruco(modifier: Modifier = Modifier) {
                 Button(
                     onClick = {
                         if (!jogoFinalizado && !maoDeOnzeA) {
-                            pontosA += 3
+                            pontosA = minOf(pontosA + 3, 12)
                         }
                     },
                     colors = ButtonDefaults.buttonColors(
@@ -170,7 +170,7 @@ fun PlacarTruco(modifier: Modifier = Modifier) {
                 Button(
                     onClick = {
                         if (!jogoFinalizado && !maoDeOnzeB) {
-                            pontosB += 3
+                            pontosB = minOf(pontosB + 3, 12)
                         }
                     },
                     colors = ButtonDefaults.buttonColors(
@@ -187,8 +187,8 @@ fun PlacarTruco(modifier: Modifier = Modifier) {
         if (mensagem.isNotEmpty()) {
             Text(
                 text = mensagem,
-                fontSize = 20.sp,
-                color = Color(0xff2563EB)
+                fontSize = 25.sp,
+                color = Color.White
             )
         }
 
